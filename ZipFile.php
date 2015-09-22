@@ -46,7 +46,6 @@ class Zipfile extends \ZipArchive
                     // in the array returned by getDirectoryContents()
                     $this->addEmptyDir($dir->getBasename());
                 } else {
-                    // remove current
                     $this->addFile($c, str_replace($baseDir . DIRECTORY_SEPARATOR, "", $c));
                 }
             }
@@ -71,7 +70,7 @@ class Zipfile extends \ZipArchive
                 }
             }
         } catch(\UnexpectedValueException $e) {
-            // $results is an empty array so nothing to do here, we'll just return it as is.
+            // $results is already an empty array so nothing to do here, we'll just return it as is.
         }
         return $results;
     }
