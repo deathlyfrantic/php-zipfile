@@ -20,7 +20,7 @@ class Zipfile extends \ZipArchive
 
     /**
      * Add a directory to the zip file including all of its contents.
-     * @param $path string The directory to add. If $path does not exist, an empty directory will be added
+     * @param string $path The directory to add. If $path does not exist, an empty directory will be added
      * to the zip archive.
      * @return ZipFile\ZipFile $this for method chaining.
      */
@@ -55,7 +55,7 @@ class Zipfile extends \ZipArchive
 
     /**
      * Return the full complete paths of the entire contents of a directory including all subdirectories.
-     * @param $path string The path of the directory whose contents you want.
+     * @param string $path The path of the directory whose contents you want.
      * @return array An array of the full paths of those contents.
      */
     public function getDirectoryContents($path)
