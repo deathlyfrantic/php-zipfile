@@ -3,7 +3,7 @@
 An extension to PHP's `ZipArchive` class to make adding directories less of a
 pain. Requires `ZipArchive` to be installed, obviously.
 
-#### Usage:
+## Usage
 
 This class just provides the ability to pass a filename to the constructor and a
 method for adding directories recursively (conveniently titled `addDir()`).
@@ -13,6 +13,6 @@ Otherwise it's identical to `ZipArchive`.
     $zip->addDir('/path/to/dir/');
     $zip->close();
 
-#### License
+## License
 
 BSD 2-clause
