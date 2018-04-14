@@ -9,8 +9,8 @@ class Zipfile extends \ZipArchive
      */
     public function __construct($name = "")
     {
-        if($name !== "") {
-            if(file_exists($name)) {
+        if ($name !== "") {
+            if (file_exists($name)) {
                 $this->open($name);
             } else {
                 $this->open($name, parent::CREATE);
@@ -27,7 +27,7 @@ class Zipfile extends \ZipArchive
     public function addDir($path)
     {
         $dir = new \SplFileInfo($path);
-        if($dir->isDir()) {
+        if ($dir->isDir()) {
             $contents = $this->getDirectoryContents($path);
             $baseDir = $dir->getPathInfo()->getRealPath();
             // basedir is the complete path of the given path's parent
@@ -37,11 +37,11 @@ class Zipfile extends \ZipArchive
         } else {
             $contents = [];
         }
-        if(count($contents) === 0) {
+        if (count($contents) === 0) {
             $this->addEmptyDir($dir->getBasename());
         } else {
-            foreach($contents as $c) {
-                if(is_dir($c)) {
+            foreach ($contents as $c) {
+                if (is_dir($c)) {
                     // safe to do because directories will always come before their contents
                     // in the array returned by getDirectoryContents()
                     $this->addEmptyDir($dir->getBasename());
@@ -63,13 +63,13 @@ class Zipfile extends \ZipArchive
         $results = [];
         try {
             $iterator = new \RecursiveDirectoryIterator($path, \FilesystemIterator::SKIP_DOTS);
-            foreach($iterator as $i) {
+            foreach ($iterator as $i) {
                 $results[] = $i->getRealPath();
-                if($i->isDir()) {
+                if ($i->isDir()) {
                     $results = array_merge($results, $this->getDirectoryContents($i->getRealPath()));
                 }
             }
-        } catch(\UnexpectedValueException $e) {
+        } catch (\UnexpectedValueException $e) {
             // $results is already an empty array so nothing to do here, we'll just return it as is.
         }
         return $results;
