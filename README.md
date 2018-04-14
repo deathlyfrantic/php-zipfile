@@ -15,5 +15,4 @@ Otherwise it's identical to `ZipArchive`.
 
 #### License
 
-I don't care, do whatever you want. I'm not responsible for anything ever. The
-end.
+BSD 2-clause
